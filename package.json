@@ -1,0 +1,54 @@
+{
+  "name": "dsh-tool-interrupt",
+  "version": "0.1.0",
+  "description": "Per-tool-call manual interrupt for DeepSeek Harness: interrupting one running tool call asks for a reason first, aborts only that call, and returns the reason to the model as that call's tool result so the turn continues. 单工具级手动中断：先填理由，只中断该次工具调用，理由作为工具结果回传给模型，会话不中断。",
+  "license": "MIT",
+  "author": "ZotinColin (wlyzqm)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wlyzqm/dsh-tool-interrupt.git"
+  },
+  "homepage": "https://github.com/wlyzqm/dsh-tool-interrupt#readme",
+  "bugs": {
+    "url": "https://github.com/wlyzqm/dsh-tool-interrupt/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "tool-interrupt",
+    "interrupt",
+    "abort",
+    "web-ui"
+  ],
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "default": "./index.js"
+    },
+    "./client": {
+      "default": "./client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "node --check index.js && node --check client.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  }
+}
